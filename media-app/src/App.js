@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Component/Header';
 import SideBar from './Component/SideBar';
@@ -6,6 +5,11 @@ import Footer from './Component/Footer';
 import PostList from './Component/PostList';
 import CreatePost from './Component/CreatePost';
 import { useState } from 'react';
+import Post from './Component/Post';
+// import {FormDetailsProvider} from './Component/FillForm';
+import {FillFormProvider} from './Component/FillForm';
+
+
 
 function App() {
 
@@ -17,6 +21,8 @@ function App() {
   
   return (
     <div className="App">
+      
+    <FillFormProvider>
       <Header onSelect={handleSelectComponent}/>
 
       <SideBar onSelect={handleSelectComponent}/>
@@ -28,6 +34,17 @@ function App() {
       </div>
       
       <Footer/>
+
+      
+
+
+
+        <Post/>
+        <CreatePost/>
+
+      </FillFormProvider>
+
+
     </div>
   );
 }
