@@ -7,7 +7,7 @@ import CreatePost from './Component/CreatePost';
 import { useState } from 'react';
 import Post from './Component/Post';
 // import {FormDetailsProvider} from './Component/FillForm';
-import {FillFormProvider} from './Component/FillForm';
+import {FillFormProvider} from './Store/FillFormProvider';
 
 
 
@@ -23,6 +23,7 @@ function App() {
     <div className="App">
       
     <FillFormProvider>
+        
       <Header onSelect={handleSelectComponent}/>
 
       <SideBar onSelect={handleSelectComponent}/>
@@ -39,10 +40,11 @@ function App() {
 
 
 
-        <Post/>
-        <CreatePost/>
+        {/* <Post/> */}
+        {/* <PostList/>
+        <CreatePost/> */}
 
-      </FillFormProvider>
+        </FillFormProvider>
 
 
     </div>

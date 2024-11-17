@@ -1,5 +1,5 @@
 import React, {useContext, useState } from 'react'
-import FillForm from './FillForm';
+import {FillFormContext} from '../Store/FillFormProvider';
 
 const CreatePost = ()=> {
 
@@ -9,36 +9,32 @@ const CreatePost = ()=> {
     const [collectDetails, setCollectDetails] = useState("");
 
     
-    const { CollectDetail, updateDetails } = useContext(FillForm);
+    const { updateDetails } = useContext(FillFormContext);
     
-    const HandleSubmit = () =>{
-        // const CollTitle = event.target.Title.value;
-        // const CollDetails = event.target.Details.value;
-
+    const HandleSubmit = (event) => {
+        event.preventDefault();
 
         updateDetails(collectTitle, collectDetails);
-
+        
         setCollectTitle('');
         setCollectDetails('');
-        // alert(collectTitle + collectDetails);
-
-        
-    }
+      };
+      
 
   return (
 <div>
     <form onSubmit={HandleSubmit}>
 
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Write The Title</label>
-            <input type="name" class="form-control" name='Title'
+            <label for="exampleInputEmail1" className="form-label">Write The Title</label>
+            <input type="name" className="form-control" value={collectTitle}
             onChange={(e)=>setCollectTitle(e.target.value)}/>
             {/* <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> */}
         </div>
 
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Write the Details</label>
-            <input type="name" class="form-control" name='Details'
+            <label for="exampleInputPassword1" className="form-label">Write the Details</label>
+            <input type="name" className="form-control" value={collectDetails}
             onChange={(e)=>setCollectDetails(e.target.value)}/>
         </div>
 
@@ -47,7 +43,7 @@ const CreatePost = ()=> {
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div> */}
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
             
     </form>
 </div>

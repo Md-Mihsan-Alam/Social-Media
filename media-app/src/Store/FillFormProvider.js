@@ -2,10 +2,10 @@ import React, { createContext, useState } from 'react';
 export const FillFormContext = createContext();
 
 export const FillFormProvider = ({children}) =>{
-    const [CollectDetail, setCollectDetails] = useState({title:'' , details:''});
+    const [CollectDetail, setCollectDetails] = useState([]);
 
-    const updateDetails = (newtitle , newdetails) => {
-        setCollectDetails({title:newtitle, details:newdetails});
+    const updateDetails = (title , details) => {
+        setCollectDetails((prevPosts) => [...prevPosts, { title, details }]);
     };
 
     return(
