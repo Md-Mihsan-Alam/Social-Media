@@ -4,7 +4,7 @@ import SideBar from './Component/SideBar';
 import Footer from './Component/Footer';
 import PostList from './Component/PostList';
 import CreatePost from './Component/CreatePost';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Post from './Component/Post';
 // import {FormDetailsProvider} from './Component/FillForm';
 import {FillFormProvider} from './Store/FillFormProvider';
@@ -19,6 +19,7 @@ function App() {
     setActiveCom(component);
   };
   
+
   return (
     <div className="App">
       
@@ -27,8 +28,7 @@ function App() {
       <Header onSelect={handleSelectComponent}/>
 
       <SideBar onSelect={handleSelectComponent}/>
-      {/* <CreatePost/> */}
-      {/* <PostList/> */}
+
       <div className="content">
         {activeCom === 'Home' && <PostList />}
         {activeCom === 'CreatePost' && <CreatePost />}
@@ -36,15 +36,7 @@ function App() {
       
       <Footer/>
 
-      
-
-
-
-        {/* <Post/> */}
-        {/* <PostList/>
-        <CreatePost/> */}
-
-        </FillFormProvider>
+    </FillFormProvider>
 
 
     </div>

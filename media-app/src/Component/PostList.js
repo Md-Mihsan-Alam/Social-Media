@@ -8,6 +8,7 @@ export default function PostList() {
 
   return (
     <div>
+      
       {CollectDetail.map((post, index) => (
         <Post key={index} title={post.title} details={post.details} />
       ))}
